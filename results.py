@@ -43,3 +43,12 @@ def write_tsv(path: str, hits: Iterable[Hit]) -> int:
         for h in rows:
             fh.write("\t".join(h.as_row()) + "\n")
     return len(rows)
+"""Hit records and TSV output."""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Iterable, List
+
+TSV_COLUMNS = [
+    "guide", "guide_seq", "contig", "start", "end", "strand",
+    "mismatches", "seed_mismatches", "mismatch_positions", "target", "pam",
